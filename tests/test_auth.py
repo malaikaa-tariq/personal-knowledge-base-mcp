@@ -28,6 +28,16 @@ def setup_test_db():
 
 client = TestClient(app)
 
+def test_health_check():
+    response = client.get("/health")
+
+    assert response.status_code == 200
+
+    data = response.json()
+
+    assert data["ok"] is True
+    assert data["status"] == "healthy"
+
 def test_signup_success():
     response = client.post("/auth/signup", json={
         "email": "pytestuser@example.com",

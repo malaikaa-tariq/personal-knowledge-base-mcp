@@ -21,3 +21,11 @@ app.include_router(auth.router)
 @app.get("/")
 def root():
     return {"message": "API is running"}
+
+@app.get("/health")
+def health():
+    return {
+        "ok": True,
+        "service": "Personal Knowledge Base API",
+        "status": "healthy"
+    }
