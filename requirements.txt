@@ -11,3 +11,6 @@ python-dotenv
 email-validator
 pytest
 httpx
+qdrant-client
+sentence-transformers
+pypdf
